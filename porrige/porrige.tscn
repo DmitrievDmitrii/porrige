@@ -9,7 +9,6 @@ albedo_texture = ExtResource("1_rvmt1")
 [sub_resource type="BoxMesh" id="BoxMesh_yl6xh"]
 
 [node name="porrige" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_41vkp")
 mesh = SubResource("BoxMesh_yl6xh")
 script = ExtResource("2_2j4n2")

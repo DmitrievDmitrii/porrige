@@ -19,7 +19,7 @@ func _ready():
 			floor.global_position.z = i * floorSize
 			floors[i].append(floor)
 			floor._set_text(get_temp([i,j]))
-			floor._init_porrige(1)
+			floor._init_porrige(2)
 	
 	floors[winIndexes[0]][winIndexes[1]].isWin = true
 	print($character.global_position)
