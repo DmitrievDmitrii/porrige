@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjqpxkk6yo6il"]
+
+[ext_resource type="SpriteFrames" uid="uid://cmnna5hwheb6f" path="res://character/sprites.tres" id="1_m5oin"]
+[ext_resource type="Script" path="res://main.gd" id="1_xr6qe"]
+[ext_resource type="Script" path="res://character.gd" id="2_dt3dy"]
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_xr6qe")
+
+[node name="character" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224424, 0)
+billboard = 1
+texture_filter = 0
+sprite_frames = ExtResource("1_m5oin")
+animation = &"idle"
+script = ExtResource("2_dt3dy")
+
+[node name="Timer" type="Timer" parent="character"]
+one_shot = true
+
+[node name="Camera3D" type="Camera3D" parent="character"]
+transform = Transform3D(1, 0, 0, 0, 0.64812, 0.761538, 0, -0.761538, 0.64812, 0.0630542, 0.835656, 1.0183)
+projection = 1
+fov = 96.6103
+size = 1.48062
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.00783646, 0.999969, 0, -0.999969, 0.00783646, -0.191539, 2.94739, -0.190377)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208979, 0, 0)
+
+[node name="gui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="winLabel" type="Label" parent="gui"]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 211.0
+offset_right = 526.0
+offset_bottom = 245.0
+theme_override_font_sizes/font_size = 100
+text = "win"
+
+[node name="addTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="animation_finished" from="character" to="character" method="_on_animation_finished"]
+[connection signal="digSignal" from="character" to="." method="_on_character_dig_signal"]
+[connection signal="timeout" from="character/Timer" to="character" method="_on_timer_timeout"]
+[connection signal="timeout" from="addTimer" to="." method="_on_add_timer_timeout"]

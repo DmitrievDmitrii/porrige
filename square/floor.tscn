@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ckjmjglujet"]
+
+[ext_resource type="Texture2D" uid="uid://bqhy06q6w5364" path="res://square/floor.jpg" id="1_gi0i0"]
+[ext_resource type="Script" path="res://square/floor.gd" id="2_5yup0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfoth"]
+albedo_texture = ExtResource("1_gi0i0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_jns7m"]
+
+[node name="floor" type="MeshInstance3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.04, 0, 0, 0, 0.4, 0, -0.0231502, 0)
+material_override = SubResource("StandardMaterial3D_hfoth")
+mesh = SubResource("BoxMesh_jns7m")
+script = ExtResource("2_5yup0")
+
+[node name="textLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.519367, 0)
+text = "temp"
+font_size = 42

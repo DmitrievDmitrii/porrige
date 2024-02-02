@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://lg0u6acwnabx"]
+
+[ext_resource type="Texture2D" uid="uid://78og4puqmq2b" path="res://porrige/porrige.JPG" id="1_rvmt1"]
+[ext_resource type="Script" path="res://porrige/porrige.gd" id="2_2j4n2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41vkp"]
+albedo_texture = ExtResource("1_rvmt1")
+
+[sub_resource type="BoxMesh" id="BoxMesh_yl6xh"]
+
+[node name="porrige" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_41vkp")
+mesh = SubResource("BoxMesh_yl6xh")
+script = ExtResource("2_2j4n2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://djk23pt5lc6fk"]
+
+[ext_resource type="Script" path="res://character/character.gd" id="1_prnik"]
+[ext_resource type="SpriteFrames" uid="uid://cmnna5hwheb6f" path="res://character/sprites.tres" id="2_8fbe6"]
+
+[node name="character" type="Area2D"]
+script = ExtResource("1_prnik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_8fbe6")
+animation = &"walk"
+frame_progress = 0.985341
